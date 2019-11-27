@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ilp-o7-Vmt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MoO-Lm-266">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Check List View Controller-->
+        <!--Check list-->
         <scene sceneID="8bH-E2-O93">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pH5-Xc-3da" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tableViewController id="Ilp-o7-Vmt" customClass="checkListViewController" customModule="GTD" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="uas-6B-Go6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -42,10 +43,34 @@
                             <outlet property="delegate" destination="Ilp-o7-Vmt" id="CRZ-xm-fj5"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Check list" largeTitleDisplayMode="always" id="Auk-VI-FY9">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="evU-pc-RGt">
+                            <connections>
+                                <action selector="addItem" destination="Ilp-o7-Vmt" id="WMH-h3-Jq3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pH5-Xc-3da" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-86" y="76"/>
+            <point key="canvasLocation" x="-3923" y="-436"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fMb-SK-KCq">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ntt-vx-PsD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MoO-Lm-266" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="2ue-Ne-bGh">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Ilp-o7-Vmt" kind="relationship" relationship="rootViewController" id="Y6Q-Ya-0fr"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-4630" y="-436"/>
         </scene>
     </scenes>
 </document>

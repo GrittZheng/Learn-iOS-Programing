@@ -10,7 +10,22 @@ import UIKit
 
 class checkListViewController: UITableViewController {
     
-//    var items = [ChecklistItem]()
+    //MARK:- Add action
+
+    @IBAction func addItem(){
+        
+        let newRowIndex = items.count
+         
+        let item = ChecklistItem()
+        item.text = "我是新添加的一行内容"
+        items.append(item)
+         
+        let indexPath = IndexPath(row: newRowIndex, section: 0)
+
+        let indexPaths = [indexPath]
+         
+        tableView.insertRows(at: indexPaths , with: .automatic)
+    }
     
     var items = [ChecklistItem]()
 
@@ -18,6 +33,8 @@ class checkListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+    //navigationController?.navigationBar.prefersLargeTitles = true
         
         let item1 = ChecklistItem()
         item1.text = "重温德容为加盟巴萨寄出投名状"
@@ -72,6 +89,18 @@ class checkListViewController: UITableViewController {
     }
     
     }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        items.remove(at: indexPath.row)
+        
+        let indexPaths = [indexPath]
+        tableView.deleteRows(at: indexPaths, with: .automatic)
+        
+    }
+    
+    
+    
     
     //MARK:- CONFIGURE THE CHECKMARK
     func configureCheckmark(for cell: UITableViewCell, with item: ChecklistItem){
