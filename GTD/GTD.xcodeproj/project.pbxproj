@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BC3DD6CD238F5E2E0020647F /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3DD6CC238F5E2E0020647F /* ItemDetailViewController.swift */; };
+		BC691C5D23969F1700C71289 /* AllListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC691C5C23969F1700C71289 /* AllListsViewController.swift */; };
 		BCD2A759238BD36800583388 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD2A758238BD36800583388 /* ChecklistItem.swift */; };
 		BCEC0C90238AE72500ED64B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC0C8F238AE72500ED64B7 /* AppDelegate.swift */; };
 		BCEC0C92238AE72500ED64B7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC0C91238AE72500ED64B7 /* SceneDelegate.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		BC3DD6CC238F5E2E0020647F /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
+		BC691C5C23969F1700C71289 /* AllListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListsViewController.swift; sourceTree = "<group>"; };
 		BCD2A758238BD36800583388 /* ChecklistItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
 		BCEC0C8C238AE72500ED64B7 /* GTD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GTD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCEC0C8F238AE72500ED64B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				BCEC0C9D238AE72700ED64B7 /* Info.plist */,
 				BCD2A758238BD36800583388 /* ChecklistItem.swift */,
 				BC3DD6CC238F5E2E0020647F /* ItemDetailViewController.swift */,
+				BC691C5C23969F1700C71289 /* AllListsViewController.swift */,
 			);
 			path = GTD;
 			sourceTree = "<group>";
@@ -146,6 +149,7 @@
 			files = (
 				BCEC0C94238AE72500ED64B7 /* ChecklistViewController.swift in Sources */,
 				BC3DD6CD238F5E2E0020647F /* ItemDetailViewController.swift in Sources */,
+				BC691C5D23969F1700C71289 /* AllListsViewController.swift in Sources */,
 				BCEC0C90238AE72500ED64B7 /* AppDelegate.swift in Sources */,
 				BCEC0C92238AE72500ED64B7 /* SceneDelegate.swift in Sources */,
 				BCD2A759238BD36800583388 /* ChecklistItem.swift in Sources */,

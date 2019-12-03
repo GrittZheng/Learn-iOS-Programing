@@ -11,6 +11,41 @@ import UIKit
 class CheckListViewController: UITableViewController, ItemDetailViewControllerDelegate {
    
     var items = [ChecklistItem]()
+    
+    func documentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        
+        return paths[0]
+    }
+    
+    func dataFilePath() -> URL {
+        return documentsDirectory().appendingPathComponent("Checklists.plist")
+    }
+    
+    func saveCheckListItems() {
+        let encoder = PropertyListEncoder()
+        
+        do {
+            let data = try encoder.encode(items)
+            
+            try data.write(to: dataFilePath(), options: Data.WritingOptions.atomic)
+        } catch {
+            print("Error encoding item array: \(error.localizedDescription)")
+        }
+    }
+    
+    func loadChecklistItems() {
+        let path = dataFilePath()
+        
+        if let data = try? Data(contentsOf: path) {
+            let decoder = PropertyListDecoder()
+            do {
+                items = try decoder.decode([ChecklistItem].self, from: data)
+            } catch {
+                print("Error decoding item array: \(error.localizedDescription)")
+            }
+        }
+    }
 
 
     override func viewDidLoad() {
@@ -19,27 +54,8 @@ class CheckListViewController: UITableViewController, ItemDetailViewControllerDe
         
     //navigationController?.navigationBar.prefersLargeTitles = true
         
-        let item1 = ChecklistItem()
-        item1.text = "重温德容为加盟巴萨寄出投名状"
-        items.append(item1)
-        
-        let item2 = ChecklistItem()
-        item2.text = "A股暴涨，赶紧去开个科创板的新户"
-        item2.checked = true
-        items.append(item2)
-        
-        let item3 = ChecklistItem()
-        item3.text = "两会召开中，关注每天的新闻动态"
-        item3.checked = true
-        items.append(item3)
-        
-        let item4 = ChecklistItem()
-        item4.text = "学习神奇的AI视频变脸技术"
-        items.append(item4)
-        
-        let item5 = ChecklistItem()
-        item5.text = "为参加6月的WWDC提前做好准备"
-        items.append(item5)
+    // Load items
+        loadChecklistItems()
     }
     
     //MARK:- Table View Data Source
@@ -70,6 +86,7 @@ class CheckListViewController: UITableViewController, ItemDetailViewControllerDe
             
             tableView.deselectRow(at: indexPath, animated: true)
     }
+        saveCheckListItems()
     
     }
     
@@ -79,6 +96,8 @@ class CheckListViewController: UITableViewController, ItemDetailViewControllerDe
         
         let indexPaths = [indexPath]
         tableView.deleteRows(at: indexPaths, with: .automatic)
+        
+        saveCheckListItems()
         
     }
     
@@ -120,6 +139,8 @@ class CheckListViewController: UITableViewController, ItemDetailViewControllerDe
         tableView.insertRows(at: indexPaths, with: .automatic)
         
         navigationController?.popViewController(animated: true)
+        
+        saveCheckListItems()
        }
     
     func ItemDetailViewController(_ controller: ItemDetailViewController, didFinishEditing item: ChecklistItem) {
@@ -131,6 +152,8 @@ class CheckListViewController: UITableViewController, ItemDetailViewControllerDe
             }
         }
         navigationController?.popViewController(animated: true)
+        
+        saveCheckListItems()
     }
        
     //MARK:- Navigation
@@ -150,6 +173,7 @@ class CheckListViewController: UITableViewController, ItemDetailViewControllerDe
         
     }
     
+
     
 }
 
